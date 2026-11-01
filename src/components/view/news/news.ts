@@ -1,5 +1,5 @@
 import './news.css';
-import { Article } from '../../types';
+import { Article } from '../../../types';
 
 class News {
     public draw(data: Article[]): void {
@@ -41,8 +41,9 @@ class News {
             }
 
             const descContent = newsClone.querySelector('.news__description-content');
-            if (descContent) descContent.textContent = item.description;
-
+            if (descContent) {
+                descContent.textContent = item.description || '';
+            }
             const readMoreLink = newsClone.querySelector('.news__read-more a');
             if (readMoreLink) {
                 readMoreLink.setAttribute('href', item.url);

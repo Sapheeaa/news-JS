@@ -1,9 +1,9 @@
-import { Article, NewsSource } from '../../types';
+import { ApiResponse, Article, NewsSource } from '../../types';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 class App {
-    controller: AppController;
-    view: AppView;
+    private controller: AppController;
+    private view: AppView;
 
     constructor() {
         this.controller = new AppController();
@@ -15,10 +15,10 @@ class App {
 
         if (sourcesElement) {
             sourcesElement.addEventListener('click', (e: MouseEvent) => {
-                this.controller.getNews(e, (data: Article[]) => this.view.drawNews(data));
+                this.controller.getNews(e, (data: ApiResponse<Article>) => this.view.drawNews(data));
             });
         }
-        this.controller.getSources((data: NewsSource[]) => this.view.drawSources(data));
+        this.controller.getSources((data: ApiResponse<NewsSource>) => this.view.drawSources(data));
     }
 }
 export default App;

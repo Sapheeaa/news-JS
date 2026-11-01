@@ -2,7 +2,7 @@ import AppLoader from './appLoader';
 import { ApiResponse, Article, NewsSource } from '../../types';
 
 class AppController extends AppLoader {
-    getSources(callback: (data: ApiResponse<NewsSource>) => void) {
+    public getSources(callback: (data: ApiResponse<NewsSource>) => void) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -11,7 +11,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: MouseEvent, callback: (data: ApiResponse<Article>) => void) {
+    public getNews(e: MouseEvent, callback: (data: ApiResponse<Article>) => void) {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
 
