@@ -2,8 +2,11 @@ import Loader from './loader';
 
 class AppLoader extends Loader {
     constructor() {
-        super(process.env.API_URL, {
-            apiKey: process.env.API_KEY,
+        const globalObj = globalThis as unknown as { process?: { env: Record<string, string | undefined> } };
+        const env = globalObj.process?.env || {};
+
+        super(String(env.API_URL || ''), {
+            apiKey: String(env.API_KEY || ''),
         });
     }
 }
