@@ -1,62 +1,119 @@
+/* 1. Базовый сброс */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden; /* Жестко убираем горизонтальный скролл всей страницы */
+}
+
 body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    padding: 10px 30px;
+    padding: 20px;
 }
 
 header h1 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 800;
-}
-
-main {
-    flex: 1;
-}
-
-footer {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-}
-
-footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
     margin: 0;
 }
 
+/* 2. Основной контейнер */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+/* 3. Контейнер с кнопками (Свободный перенос) */
+.sources {
+    display: flex;
+    flex-wrap: wrap; /* Кнопки переносятся на новую строку */
+    gap: 12px; /* Увеличили расстояние между кнопками для красоты */
+    width: 100%;
+    padding: 10px 0; /* Добавили отступы сверху и снизу */
+}
+
+/* 4. Кнопки */
+.source__item {
+    background-color: #1e1f24;
+    border: 1px solid #333;
+    padding: 10px 20px; /* Сделали кнопки чуть больше */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #fff;
+    transition: all 0.3s ease;
+    /* Убрали flex-shrink, чтобы они нормально переносились */
+}
+
+.source__item:hover {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+/* 5. Футер */
+footer {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #1e1f24;
+    border-top: 1px solid #333;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer .copyright {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
 footer .copyright a {
-    color: #444;
+    color: #888;
+    text-decoration: none;
 }
 
 footer .copyright a:hover {
-    color: #555;
+    color: #fff;
 }
 
 footer .copyright:before {
-    content: '©';
+    content: '© ';
 }
 
 .footer__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .footer__link,
 .footer__year {
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -65,7 +122,7 @@ footer .copyright:before {
 }
 
 .footer__logo {
-    width: 80px;
+    width: 70px;
     height: auto;
     transition: transform 0.3s ease;
 }
