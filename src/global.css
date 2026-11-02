@@ -13,23 +13,63 @@ header h1 {
     font-weight: 800;
 }
 
+main {
+    flex: 1;
+}
+
 footer {
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
+
 footer .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
+    margin: 0;
 }
+
 footer .copyright a {
     color: #444;
 }
+
 footer .copyright a:hover {
     color: #555;
 }
+
 footer .copyright:before {
     content: '©';
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer__link,
+.footer__year {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer__link:hover {
+    color: #4a90e2;
+}
+
+.footer__logo {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer__logo:hover {
+    transform: scale(1.1);
 }
